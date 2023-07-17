@@ -1,9 +1,11 @@
-import { SideBar } from './components/SideBar'
+import { MainPage, SideBar } from "./components";
+
 
 export const App = () => {
   return (
     <>
       <SideBar />
+      <MainPage/>
     </>
   );
 };

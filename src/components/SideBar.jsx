@@ -3,7 +3,7 @@
 
 export const SideBar = () => {
   return (
-    <nav className="relative w-72 h-screen flex justify-center">
+    <nav className="fixed w-72 h-screen flex justify-center">
         <div className="w-40 h-screen flex flex-col justify-between items-start">
             {/* Cajita del logo */}
             <div className="mt-14 w-28 flex-1">
