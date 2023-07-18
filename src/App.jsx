@@ -1,4 +1,5 @@
-import { MainPage, SideBar } from "./components";
+/* eslint-disable no-unused-vars */
+import { About, MainPage, SideBar } from "./components";
 
 
 export const App = () => {
@@ -6,6 +7,7 @@ export const App = () => {
     <>
       <SideBar />
       <MainPage/>
+      {/* <About /> */}
     </>
   );
 };

@@ -1,0 +1,1 @@
+//fetch de las imagenes desde donde esten alojadas
