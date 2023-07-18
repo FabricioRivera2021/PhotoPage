@@ -4,13 +4,13 @@ import { img } from '../data';
 
 export const MainPage = () => {
   return (
-    <div className="absolute top-5 left-[18rem] w-[calc(100%-18rem)] h-[200vh] overflow-hidden">
+    <div className="absolute top-5 left-[16rem] w-[calc(100%-17rem)] overflow-hidden">
         <div>
-          <div className='flex flex-wrap gap-10'>
+          <div className='columns-3 gap-2 mb-10'>
             {img.map((elem) => {
               return (
-                <div key={elem.id} className='w-[calc((100%-18rem)/1.7)]'>
-                  <img src={`./src/img/${elem.name}.jpg`} alt={elem.title} className='w-full'/>
+                <div key={elem.id} className='mb-2 hover:cursor-pointer hover:opacity-70'>
+                  <img src={`./src/img/${elem.name}.jpg`} alt={elem.title}/>
                   {/* <div className="p-4">
                     <h2 className="text-xl font-bold">{elem.title}</h2>
                     <p>{elem.desc}</p>
@@ -23,3 +23,5 @@ export const MainPage = () => {
     </div>
   )
 }
+
+// className='basis-[28rem]'
