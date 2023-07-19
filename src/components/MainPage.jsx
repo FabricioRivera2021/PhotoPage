@@ -6,7 +6,7 @@ export const MainPage = () => {
   return (
     <div className="absolute top-5 left-[16rem] w-[calc(100%-17rem)] overflow-hidden">
         <div>
-          <div className='columns-3 gap-2 mb-10'>
+          <div className='columns-1 md:columns-2 xl:columns-3 gap-2 mb-10'>
             {img.map((elem) => {
               return (
                 <div key={elem.id} className='mb-2 hover:cursor-pointer hover:opacity-70'>
