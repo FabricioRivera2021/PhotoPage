@@ -12,15 +12,19 @@ export const SideBar = () => {
                 {/* md:flex significa que cuando se este en md size en el view dejara de ser hidden
                 y se mostrara como display flex, */}
                 <div className="flex flex-col flex-1 space-y-2 antialiased text-left mt-10">
-                    <a href="#" className="hover:text-slate-400">Portfolio</a>
+                    <a href="#" className="hover:text-amber-600">Inicio</a>
+                    <a href="#" className="hover:text-amber-600">Portfolio</a>
+                    <a href="#" className="pl-2 text-xs hover:text-amber-600">Sesiones de estudio</a>
+                    <a href="#" className="pl-2 text-xs hover:text-amber-600">Eventos</a>
+                    <a href="#" className="pl-2 text-xs hover:text-amber-600">Fotografia callejera</a>
                 </div>
             </div>
             {/* Cajita de los links externos y el about */}
             <div className="mb-12 flex flex-row antialiased items-end text-left">
               {/* links de texto */}
               <div className="flex flex-col">
-                <a href="#"  className="hover:text-slate-400">Sobre mi</a>
-                <a href="#" className="hover:text-slate-400">Contacto</a>
+                <a href="#"  className="hover:text-amber-600">Sobre mi</a>
+                <a href="#" className="hover:text-amber-600">Contacto</a>
                 {/* links con iconos */}
                   <div className="flex flex-row items-center mt-1 gap-2">
                   {/* <!-- Linkedin --> */}

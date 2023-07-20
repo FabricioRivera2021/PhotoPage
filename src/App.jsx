@@ -6,8 +6,8 @@ export const App = () => {
   return (
     <>
       <SideBar />
-      <MainPage/>
-      {/* <About /> */}
+      {/* <MainPage/> */}
+      <About />
     </>
   );
 };
