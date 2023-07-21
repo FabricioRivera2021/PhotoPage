@@ -1,13 +1,14 @@
 /* eslint-disable no-unused-vars */
-import { About, MainPage, SideBar } from "./components";
+
+import { AppRouter } from "./Routes/AppRouter";
+import { SideBar } from "./components";
 
 
 export const App = () => {
   return (
     <>
       <SideBar />
-      {/* <MainPage/> */}
-      <About />
+      <AppRouter />
     </>
   );
 };

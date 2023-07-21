@@ -24,7 +24,7 @@ export const About = () => {
                 tempore doloribus laudantium veniam? Quam blanditiis dignissimos 
                 totam quia asperiores!
                 </p>
-                <img src="./src/img/img (2).jpg" alt="img" />
+                <img src="./src/img/img (10).jpg" alt="img" />
                 <p className="p-4">Lorem ipsum dolor sit amet consectetur 
                 adipisicing elit. Dolores earum suscipit et voluptatum in alias 
                 optio, repudiandae autem illo, omnis, laboriosam veritatis iste at 

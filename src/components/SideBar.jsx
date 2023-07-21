@@ -6,13 +6,13 @@ export const SideBar = () => {
     <nav className="fixed w-64 h-screen flex justify-center">
         <div className="w-40 h-screen flex flex-col justify-between items-start">
             {/* Cajita del logo */}
-            <div className="mt-14 w-28 flex-1">
+            <div className="mt-14 w-36 flex-1">
                 <img src='../src/img/logo.jpg' alt="img" />
                 {/* Cajita del menu */}
                 {/* md:flex significa que cuando se este en md size en el view dejara de ser hidden
                 y se mostrara como display flex, */}
                 <div className="flex flex-col flex-1 space-y-2 antialiased text-left mt-10">
-                    <a href="#" className="hover:text-amber-600">Inicio</a>
+                    <a href="/" className="hover:text-amber-600">Inicio</a>
                     <a href="#" className="hover:text-amber-600">Portfolio</a>
                     <a href="#" className="pl-2 text-xs hover:text-amber-600">Sesiones de estudio</a>
                     <a href="#" className="pl-2 text-xs hover:text-amber-600">Eventos</a>
@@ -23,12 +23,12 @@ export const SideBar = () => {
             <div className="mb-12 flex flex-row antialiased items-end text-left">
               {/* links de texto */}
               <div className="flex flex-col">
-                <a href="#"  className="hover:text-amber-600">Sobre mi</a>
-                <a href="#" className="hover:text-amber-600">Contacto</a>
+                <a href="/about"  className="hover:text-amber-600">Sobre mi</a>
+                <a href="/contact" className="hover:text-amber-600">Contacto</a>
                 {/* links con iconos */}
                   <div className="flex flex-row items-center mt-1 gap-2">
                   {/* <!-- Linkedin --> */}
-                  <a href="#"  className="p-0.5 hover:fill-[#0077b5]"><svg
+                  <a href="#"  className="p-0.5 fill-[#0077b5]"><svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-4 w-4"
                     // fill="currentColor"
@@ -38,7 +38,7 @@ export const SideBar = () => {
                       d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
                   </svg></a>
                   {/* <!-- Instagram --> */}
-                  <a href="#"  className="p-0.5 hover:fill-[#c13584]"><svg
+                  <a href="#"  className="p-0.5 fill-[#c13584]"><svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-4 w-4"
                     // fill="currentColor"
