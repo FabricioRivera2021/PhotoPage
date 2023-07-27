@@ -59,11 +59,5 @@ export const img = [
         name: 'img (10)',
         title: 'title',
         desc: 'desc'
-    },
-    {
-        id: '11',
-        name: 'img (11)',
-        title: 'title',
-        desc: 'desc'
     }
 ]

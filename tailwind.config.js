@@ -20,6 +20,9 @@ export default {
           'body': ['"Open Sans"'],
           'cursive': ['"Italianno"']
       },
+      backgroundImage: {
+        'contact-img': "url('/src/img/img (6).jpg')",
+      },
     },
   },
   // eslint-disable-next-line no-undef
