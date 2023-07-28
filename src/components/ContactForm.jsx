@@ -1,6 +1,6 @@
 export const ContactForm = () => {
   return (
-    <div className="absolute top-0 left-[16rem] bg-contact-img bg-no-repeat bg-center bg-cover w-[calc(100%-17rem)] md:px-6 h-[100vh]">
+    <div className="absolute top-0 left-[16rem] bg-contact-img bg-no-repeat bg-center bg-cover w-[calc(100%-16rem)] md:px-6 h-[100vh]">
       <div className="absolute top-0 w-full left-0 h-full bg-slate-900 bg-opacity-60 backdrop-blur-sm">
         {/* el efecto de la opacidad */}
         {/* <div className="absolute top-[50%] left-0 w-full h-[calc(50%)] bg-slate-900 bg-opacity-80"></div> */}
@@ -9,13 +9,13 @@ export const ContactForm = () => {
       <section className="flex flex-col space-y-20 justify-center items-center h-full">
       
         <div className="z-50 text-center space-y-3">
-          <h2 className="font-medium text-white">Contactanos llenando el formulario</h2>
+          <h2 className="font-semibold text-5xl tracking-wide text-white">Contactanos llenando el formulario</h2>
           <p className="text-white">Dejanos tus datos y el tipo de sesion que quieres y nos pondremos en contacto a la brevedad</p>
         </div>
       
         <div className="bg-slate-800 w-[1000px] h-[400px] z-10 mt-72 opacity-95 grid content-end">
-          <div className="flex justify-center items-center h-[140px] gap-3">
-            <div className="flex justify-center items-center gap-4 bg-slate-900 p-2 px-6 rounded-lg">
+          <div className="flex justify-center items-center mx-auto w-[56rem] h-[140px] gap-3">
+            <div className="flex justify-center items-center gap-5 bg-slate-900 p-2 px-6 rounded-lg">
             
                     <svg className="h-12 w-12 text-red-500 rounded-lg"  
                         width="27" 
@@ -60,7 +60,7 @@ export const ContactForm = () => {
                          viewBox="0 0 24 24"  
                          fill="none"  
                          stroke="currentColor"  
-                         strokeWidth="1"  
+                         strokeWidth="1.3"  
                          strokeLinecap="round"  
                          strokeLinejoin="round">  
                          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />  
@@ -137,7 +137,7 @@ export const ContactForm = () => {
                     </label>
                   </div>
 
-                  <div className="relative w-full mb-6 pr-8 row-span-3" data-te-input-wrapper-init>
+                  <div className="relative w-full mb-6 row-span-3" data-te-input-wrapper-init>
                     <textarea
                       type="textarea"
                       className="peer block h-full w-full  rounded  border-0  bg-slate-500 py-[0.32rem]  px-3 leading-[1.6]  outline-none transition-all 
@@ -164,7 +164,7 @@ export const ContactForm = () => {
                       className="peer block min-h-[auto] w-full  rounded  border-0  bg-primary-600 py-[0.32rem]  px-3 leading-[1.6]  outline-none transition-all 
                                  duration-200 ease-linear  focus:placeholder:opacity-100  peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 
                                  motion-reduce:transition-none dark:text-neutral-200  dark:placeholder:text-neutral-200  dark:peer-focus:text-primary 
-                                 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 cursor-pointer"
+                                 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 cursor-pointer hover:bg-primary-700"
                       id="exampleInput90"
                       placeholder="Tel"
                     />
