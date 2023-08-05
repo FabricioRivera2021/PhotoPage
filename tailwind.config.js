@@ -22,9 +22,9 @@ export default {
       },
       backgroundImage: {
         'contact-img': "url('/src/img/img (6).jpg')",
-        'sesionesBg-img': "url('/src/img/img (12).jpg')",
-        'eventosBg-img': "url('/src/img/img (7).jpg')",
-        'streetBg-img': "url('/src/img/img (2).jpg')",
+        'sesionesBg-img': "url('/src/img/img (1).jpg')",
+        'eventosBg-img': "url('/src/img/eventoMockup.jpg')",
+        'streetBg-img': "url('/src/img/streetMockup.jpg')",
       }
     },
   },

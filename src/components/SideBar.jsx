@@ -1,14 +1,8 @@
 /* eslint-disable no-unused-vars */
-import { useState } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 export const SideBar = () => {
-  
-  let { dropdownState } = false;
-  const [dropwdown, setDropwdown] = useState(dropdownState);
-
-  console.log(dropwdown)
   
   return (
     <nav className="fixed w-64 h-screen flex justify-center">
@@ -20,23 +14,16 @@ export const SideBar = () => {
                 {/* md:flex significa que cuando se este en md size en el view dejara de ser hidden
                 y se mostrara como display flex, */}
                 <div className="flex flex-col flex-1 antialiased text-left mt-10">
-                    <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-amber-500 bg-zinc-700 px-2 rounded-tr-lg transition-all mb-2' : 'mb-2'}`} to="/" onClick={() => setDropwdown(false)} >Inicio</NavLink>
-                    <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-amber-500 bg-zinc-700 px-2 rounded-tr-lg transition-all' : ''}`} to="/portfolio" onClick={() => setDropwdown(true)}
-                    >
-                    Portfolio</NavLink>
-                    <div className={(dropwdown) ? 'flex flex-col pl-3 pb-1 bg-zinc-700 h-auto transition-all' : ''}>
-                      <NavLink className={`${(dropwdown) ? 'text-[0.9rem] hover:underline text-amber-500' : 'hidden'} `}>Sesiones de estudio</NavLink>
-                      <NavLink className={`${(dropwdown) ? 'text-[0.9rem] hover:underline text-amber-500' : 'hidden'} `}>Eventos</NavLink>
-                      <NavLink className={`${(dropwdown) ? 'text-[0.9rem] hover:underline text-amber-500' : 'hidden'} `}>Fotografia callejera</NavLink>
-                    </div>
+                    <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 rounded-tr-lg transition-all mb-2' : 'mb-2'}`} to="/" >Inicio</NavLink>
+                    <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 rounded-tr-lg transition-all' : ''}`} to="/portfolio" >Portfolio</NavLink>
                 </div>
             </div>
             {/* Cajita de los links externos y el about */}
             <div className="mb-12 flex flex-row antialiased items-end text-left">
               {/* links de texto */}
               <div className="flex flex-col">
-                <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-amber-500 bg-zinc-700 px-2 rounded-tr-lg transition-all' : ''}`} to="/about" onClick={() => setDropwdown(false)}>Sobre mi</NavLink>
-                <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-amber-500 bg-zinc-700 px-2 rounded-tr-lg transition-all' : ''}`} to="/contact" onClick={() => setDropwdown(false)}>Contacto</NavLink>
+                <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 rounded-tr-lg transition-all' : ''}`} to="/about" >Sobre mi</NavLink>
+                <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 rounded-tr-lg transition-all' : ''}`} to="/contact" >Contacto</NavLink>
                 {/* links con iconos */}
                   <div className="flex flex-row items-center mt-1 gap-2">
                   {/* <!-- Linkedin --> */}

@@ -22,11 +22,11 @@
   }
   
   .card-zoom {
-    @apply top-28 flex items-center justify-center overflow-hidden min-w-[350px];
+    @apply top-28 flex items-center justify-center overflow-hidden min-w-[350px] h-full;
   }
 
   .card-zoom-image {
-    @apply flex flex-auto justify-center items-center max-w-full min-w-[350px] min-h-[300px] transition-all duration-500 ease-in-out transform bg-center bg-cover;
+    @apply flex flex-auto justify-center items-center max-w-full min-w-[350px] h-full transition-all duration-500 ease-in-out transform bg-center bg-cover;
   }
 
   .card-zoom-text {
@@ -34,7 +34,7 @@
   }
 
   .card-zoom:hover .card-zoom-image {
-    @apply scale-95 blur-[3px] brightness-75;
+    @apply scale-95 blur-[3px] brightness-50;
   }
 
   .card-zoom:hover .card-zoom-text {
