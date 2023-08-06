@@ -6,3 +6,4 @@ export * from './About';
 export * from './ContactForm';
 export * from './PortfolioMain';
 export * from './Sesiones';
+export * from './Exteriores';

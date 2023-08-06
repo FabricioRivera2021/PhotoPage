@@ -15,7 +15,7 @@ export const SideBar = () => {
                 y se mostrara como display flex, */}
                 <div className="flex flex-col flex-1 antialiased text-left mt-10">
                     <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 rounded-tr-lg transition-all mb-2' : 'mb-2 text-white'}`} to="/" >Inicio</NavLink>
-                    <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 rounded-tr-lg transition-all' : 'text-white'}`} to="/portfolio" >Portfolio</NavLink>
+                    <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 rounded-tr-lg transition-all' : 'text-white'}`} to="/portfolio" >Portafolio</NavLink>
                 </div>
             </div>
             {/* Cajita de los links externos y el about */}

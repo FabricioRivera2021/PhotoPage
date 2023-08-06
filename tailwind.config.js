@@ -22,10 +22,11 @@ export default {
       },
       backgroundImage: {
         'contact-img': "url('/src/img/img (6).jpg')",
-        'sesionesBg-img': "url('/src/img/img (1).jpg')",
-        'eventosBg-img': "url('/src/img/eventoMockup.jpg')",
-        'streetBg-img': "url('/src/img/streetMockup.jpg')",
+        'sesionesBg-img': "url('/src/img/img (7).jpg')",
+        'productBg-img': "url('/src/img/productMockup.jpg')",
+        'streetBg-img': "url('/src/img/exteriores (6).jpg')",
         'sesionesPageBg': "url('/src/img/img (2).jpg')",
+        'exterioresPageBg': "url('/src/img/portadaExt.jpg')",
       }
     },
   },
