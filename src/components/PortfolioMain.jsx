@@ -6,7 +6,7 @@ export const PortfolioMain = () => {
       <div className="w-full h-full bg-opacity-60">
 
         <div className="flex w-full h-full justify-around gap-5 px-10 py-20 items-center">
-          <NavLink className="flex-1 h-full">
+          <NavLink className="flex-1 h-full" to="/portfolio/sesiones">
             <div className="card-zoom">
               <div className='card-zoom-image bg-sesionesBg-img'></div>
               <h3 className='card-zoom-text'>Sesiones de estudio</h3>

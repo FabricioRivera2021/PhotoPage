@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 export const SideBar = () => {
   
   return (
-    <nav className="fixed w-64 h-screen flex justify-center">
+    <nav className="fixed w-64 h-screen flex justify-center bg-zinc-900">
         <div className="w-40 h-screen flex flex-col justify-between items-start">
             {/* Cajita del logo */}
             <div className="mt-14 w-36 flex-1">
@@ -14,16 +14,16 @@ export const SideBar = () => {
                 {/* md:flex significa que cuando se este en md size en el view dejara de ser hidden
                 y se mostrara como display flex, */}
                 <div className="flex flex-col flex-1 antialiased text-left mt-10">
-                    <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 rounded-tr-lg transition-all mb-2' : 'mb-2'}`} to="/" >Inicio</NavLink>
-                    <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 rounded-tr-lg transition-all' : ''}`} to="/portfolio" >Portfolio</NavLink>
+                    <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 rounded-tr-lg transition-all mb-2' : 'mb-2 text-white'}`} to="/" >Inicio</NavLink>
+                    <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 rounded-tr-lg transition-all' : 'text-white'}`} to="/portfolio" >Portfolio</NavLink>
                 </div>
             </div>
             {/* Cajita de los links externos y el about */}
             <div className="mb-12 flex flex-row antialiased items-end text-left">
               {/* links de texto */}
               <div className="flex flex-col">
-                <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 rounded-tr-lg transition-all' : ''}`} to="/about" >Sobre mi</NavLink>
-                <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 rounded-tr-lg transition-all' : ''}`} to="/contact" >Contacto</NavLink>
+                <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 rounded-tr-lg transition-all' : 'text-white'}`} to="/about" >Sobre mi</NavLink>
+                <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 rounded-tr-lg transition-all' : 'text-white'}`} to="/contact" >Contacto</NavLink>
                 {/* links con iconos */}
                   <div className="flex flex-row items-center mt-1 gap-2">
                   {/* <!-- Linkedin --> */}

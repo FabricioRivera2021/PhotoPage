@@ -25,6 +25,7 @@ export default {
         'sesionesBg-img': "url('/src/img/img (1).jpg')",
         'eventosBg-img': "url('/src/img/eventoMockup.jpg')",
         'streetBg-img': "url('/src/img/streetMockup.jpg')",
+        'sesionesPageBg': "url('/src/img/img (2).jpg')",
       }
     },
   },
