@@ -4,11 +4,16 @@ import { prodImg } from '../products';
 import PhotoAlbum from "react-photo-album";
 import Lightbox from "yet-another-react-lightbox";
 import { useState } from 'react';
+import { Modal } from './helpers';
 
 
 export const Productos = () => {
 
-    const [open, setOpen] = useState(false);
+    const [clickedImg, setClickedImg] = useState(null);
+
+    const handleClickImg = (img) => {
+        setClickedImg(img);
+    }
 
     const handleScrollToSection = () => {
         const element = document.getElementById('sesionesPhotos');
@@ -18,7 +23,7 @@ export const Productos = () => {
     };
 
     return (
-      <div className="absolute left-[16rem] w-[calc(100%-16rem)] overflow-hidden bg-zinc-900">
+    <div className="absolute left-[16rem] w-[calc(100%-16rem)] overflow-hidden bg-zinc-900">
         <div className='bg-productosPageBg bg-cover bg-top h-full w-full opacity-90'>
             <div className='w-full h-screen bg-cover bg-gradient-to-r from-zinc-900 to-transparent backdrop-blur-sm'>
                 <div className='flex w-full h-full flex-col justify-center items-center'>
@@ -40,19 +45,17 @@ export const Productos = () => {
         <div>
             <div className='bg-gradient-to-l from-zinc-900 to-transparent columns-1 md:columns-2 xl:columns-3 gap-2 mb-10 pt-10' id='sesionesPhotos'>
                 {prodImg.map((elem) => {
-                return (
-                    <div key={elem.id} onClick={() => setOpen(true)} className='mb-2 hover:cursor-pointer hover:opacity-70'>
-                        <img src={`../src/img/${elem.name}.jpg`} alt={elem.title}/>
-                    </div>
-                );
+                    return (
+                        <div key={elem.id} className='mb-2 hover:cursor-pointer hover:opacity-70'>
+                            <img onClick={() => handleClickImg(elem.name)} src={`../src/img/${elem.name}.jpg`} alt={elem.title}/>
+                        </div>
+                    );
                 })}
-                </div>
-            <Lightbox
-                open={open}
-                onClose={() => setOpen(false)}
-                slides={[{src: "../src/img/img (2).jpg"}]}
-            />
             </div>
+            { (clickedImg) &&
+                <Modal clickedImg={clickedImg}/>
+            }
         </div>
+    </div>
     )
-  }
+}
