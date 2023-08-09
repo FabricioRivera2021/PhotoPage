@@ -37,7 +37,7 @@ export const PortfolioMain = () => {
               <h3 className='card-zoom-text'>Sesiones en interior</h3>
             </div>
           </NavLink>    
-          <NavLink className="flex-1 h-full">
+          <NavLink className="flex-1 h-full" to="/portfolio/productos">
             <div className="card-zoom">
               <div className={`card-zoom-image ${(loaded) ? 'bg-productBg-img' : 'bg-slate-800' }`}>
                 {

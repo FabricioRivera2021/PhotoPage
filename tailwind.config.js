@@ -27,6 +27,7 @@ export default {
         'streetBg-img': "url('/src/img/exteriores (6).jpg')",
         'sesionesPageBg': "url('/src/img/img (2).jpg')",
         'exterioresPageBg': "url('/src/img/portadaExt.jpg')",
+        'productosPageBg': "url('/src/img/productMockupMain.jpg')",
       }
     },
   },

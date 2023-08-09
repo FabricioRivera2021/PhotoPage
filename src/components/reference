@@ -1,4 +1,4 @@
-        <div className="px-6 py-6 md:px-120 bottom-28 bg-zinc-800 flex flex-col justify-center items-center">
+        <!-- <div className="px-6 py-6 md:px-120 bottom-28 bg-zinc-800 flex flex-col justify-center items-center">
           <div>
             <div className="w-[900px] flex flex-wrap h-[300px]">
               <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 lg:px-6">
@@ -171,4 +171,4 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
