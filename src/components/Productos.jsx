@@ -1,19 +1,11 @@
 /* eslint-disable no-unused-vars */
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { prodImg } from '../products';
-import PhotoAlbum from "react-photo-album";
-import Lightbox from "yet-another-react-lightbox";
-import { useState } from 'react';
-import { Modal } from './helpers';
+import { useEffect, useRef, useState } from 'react';
+import { Modal } from './Modal';
 
 
 export const Productos = () => {
-
-    const [clickedImg, setClickedImg] = useState(null);
-
-    const handleClickImg = (img) => {
-        setClickedImg(img);
-    }
 
     const handleScrollToSection = () => {
         const element = document.getElementById('sesionesPhotos');
@@ -21,6 +13,32 @@ export const Productos = () => {
           element.scrollIntoView({ behavior: 'smooth' });
         }
     };
+
+    const [image, setImage] = useState(null);
+    
+    const handleClickedImg = (img) => {
+        setImage(img);
+    }
+
+    const ref = useRef(null);
+
+    useEffect(() => {
+      function handleClickOutside(event) {
+        if (image && ref.current && event.target.id !== 'modalImg') {
+            console.log("second");
+            console.log(event.target.id)
+        }else{
+            setImage(null);
+            console.log(event.target.id)
+        }
+      }
+  
+      document.addEventListener('click', handleClickOutside);
+  
+      return () => {
+        document.removeEventListener('click', handleClickOutside);
+      };
+    }, [image]);
 
     return (
     <div className="absolute left-[16rem] w-[calc(100%-16rem)] overflow-hidden bg-zinc-900">
@@ -47,13 +65,18 @@ export const Productos = () => {
                 {prodImg.map((elem) => {
                     return (
                         <div key={elem.id} className='mb-2 hover:cursor-pointer hover:opacity-70'>
-                            <img onClick={() => handleClickImg(elem.name)} src={`../src/img/${elem.name}.jpg`} alt={elem.title}/>
+                            <img onClick={() => handleClickedImg(elem.name)} src={`../src/img/${elem.name}.jpg`} alt={elem.title}/>
                         </div>
                     );
                 })}
             </div>
-            { (clickedImg) &&
-                <Modal clickedImg={clickedImg}/>
+            {
+                (image) &&
+                <div ref={ref} id="modalImg" className="fixed flex justify-center items-center text-white inset-0 bg-zinc-950 bg-opacity-25 backdrop-blur-sm">
+                    <div className="p-2 rounded-md bg-zinc-200">
+                        <img className="max-h-[90vh]" src={`../src/img/${image}.jpg`} alt="" />
+                    </div>
+                </div>
             }
         </div>
     </div>
