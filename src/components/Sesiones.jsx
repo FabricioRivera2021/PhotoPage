@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { Link, NavLink } from 'react-router-dom';
 import { img } from '../data';
+import { ImagesGallery } from './ImagesGallery';
 
 
 export const Sesiones = () => {
@@ -13,7 +14,7 @@ export const Sesiones = () => {
     };
 
     return (
-      <div className="absolute left-[16rem] w-[calc(100%-16rem)] overflow-hidden bg-zinc-900">
+    <div className="absolute left-[16rem] w-[calc(100%-16rem)] overflow-hidden bg-zinc-900">
         <div className='bg-sesionesPageBg bg-cover bg-center h-full w-full opacity-90'>
             <div className='w-full h-screen bg-cover bg-gradient-to-r from-zinc-900 to-transparent backdrop-blur-sm'>
                 <div className='flex w-full h-full flex-col justify-center items-center'>
@@ -29,24 +30,8 @@ export const Sesiones = () => {
                     </Link>
                 </div>
             </div> 
-        </div> 
-
-
-        <div>
-            <div className='bg-gradient-to-l from-zinc-900 to-transparent columns-1 md:columns-2 xl:columns-3 gap-2 mb-10 pt-10' id='sesionesPhotos'>
-                {img.map((elem) => {
-                return (
-                    <div key={elem.id} className='mb-2 hover:cursor-pointer hover:opacity-70'>
-                    <img src={`../src/img/${elem.name}.jpg`} alt={elem.title}/>
-                    {/* <div className="p-4">
-                        <h2 className="text-xl font-bold">{elem.title}</h2>
-                        <p>{elem.desc}</p>
-                    </div> */}
-                    </div>
-                );
-                })}
-                </div>
-            </div>
         </div>
+        <ImagesGallery imagesToLoad={img} />
+    </div>  
     )
   }
