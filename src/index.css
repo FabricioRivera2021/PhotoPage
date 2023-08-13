@@ -40,6 +40,8 @@
   .card-zoom:hover .card-zoom-text {
     @apply 2xl:scale-90 scale-50 opacity-90;
   }
+
+
   
 @tailwind components;
 @tailwind utilities;

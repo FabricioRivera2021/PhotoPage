@@ -28,6 +28,21 @@ export default {
         'sesionesPageBg': "url('/src/img/img (2).jpg')",
         'exterioresPageBg': "url('/src/img/portadaExt.jpg')",
         'productosPageBg': "url('/src/img/productMockupMain.jpg')",
+      },
+      keyframes: {
+        fadeIn: {
+          '0%':{
+              opacity: 0,
+              transform: 'translateX(-500px)'
+          },
+          '100%': { 
+              opacity: 1,
+              transform: 'translateX(0)' 
+          },
+        }
+      },
+      animation: {
+        imgFadeIn: 'fadeIn 2s ease-in-out infinite',
       }
     },
   },
