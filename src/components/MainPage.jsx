@@ -1,12 +1,10 @@
-
+/* eslint-disable no-unused-vars */
+import { slides } from '../mainPageSlides'
+import { MainSlides } from './MainSlides'
 
 export const MainPage = () => {
+
   return (
-    <div className="absolute top-5 left-[16rem] w-[calc(100%-17rem)] overflow-hidden">
-      <h1>Bienvenido a fabricio rivera fotografia</h1>
-      <p>Esto es una pagina de prueba</p>
-    </div>
+    <MainSlides slides={slides} />
   )
 }
-
-// className='basis-[28rem]'

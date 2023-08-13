@@ -9,3 +9,4 @@ export * from './Sesiones';
 export * from './Exteriores';
 export * from './Productos';
 export * from './ImagesGallery';
+export * from './MainSlides';
