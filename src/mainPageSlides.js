@@ -1,14 +1,14 @@
 export const slides = [
     {
-      name: "contact-img"
+      name: "./src/img/exteriores (2).jpg"
     },
     {
-      name: "productBg-img"
+      name: "./src/img/productos (4).jpg"
     },
     {
-      name: "exterioresPageBg"
+      name: "./src/img/img (6).jpg"
     },
     {
-      name: "sesionesBg-img"
+      name: "./src/img/productos (2).jpg"
     },
   ]

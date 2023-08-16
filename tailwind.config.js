@@ -30,19 +30,28 @@ export default {
         'productosPageBg': "url('/src/img/productMockupMain.jpg')",
       },
       keyframes: {
-        fadeIn: {
+        animation: {
           '0%':{
-              opacity: 0,
-              transform: 'translateX(-500px)'
+              opacity: 0
           },
           '100%': { 
-              opacity: 1,
-              transform: 'translateX(0)' 
+              opacity: 1
           },
-        }
+        },
+        'gradient-x': {
+          '0%, 100%': {
+              'background-size':'150% 200%',
+              'background-position': 'left center'
+          },
+          '50%': {
+              'background-size':'100% 200%',
+              'background-position': 'right center'
+          }
+        },
       },
       animation: {
-        imgFadeIn: 'fadeIn 2s ease-in-out infinite',
+        fadeIn: 'animation 1s ease-in-out 1',
+        'gradient-x':'gradient-x 15s ease infinite',
       }
     },
   },
