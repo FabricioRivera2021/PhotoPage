@@ -17,7 +17,7 @@ export const PortfolioMain = () => {
   }, []);
 
   return (
-    <div className="relative top-0 left-[16rem] w-[calc(100%-16rem)] h-[100vh] bg-gradient-to-r from-zinc-900 to-transparent">
+    <div className="relative top-0 left-[16rem] w-[calc(100%-16rem)] h-[100vh] bg-gradient-to-r from-zinc-900 to-transparent animate-gradient-x">
       <div className="w-full h-full bg-opacity-60">
 
         <div className="flex w-full h-full justify-around gap-5 px-10 py-20 items-center">

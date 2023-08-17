@@ -5,6 +5,8 @@ import { MainSlides } from './MainSlides'
 export const MainPage = () => {
 
   return (
-    <MainSlides slides={slides} />
+    
+      <MainSlides slides={slides} />
+    
   )
 }
