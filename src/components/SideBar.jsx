@@ -5,27 +5,28 @@ import { Link, NavLink } from 'react-router-dom';
 export const SideBar = () => {
   
   return (
-    <nav className="main-container fixed h-44 w-[calc(100vw-4rem)] bg-slate-700">
-        <div className="subMain-container flex justify-between">
+    <nav className="sm:fixed sm:w-64 sm:h-screen sm:flex sm:justify-center sm:bg-zinc-900 fixed h-screen w-[calc(100vw-4rem)] bg-zinc-900 z-50">
+        <button className='absolute top-3 right-3 bg-slate-600 p-3 rounded-sm text-white'>X</button>
+        <div className="sm:w-40 sm:h-screen sm:flex sm:flex-col sm:justify-between sm:items-start flex flex-col h-[90%] justify-between mt-9">
             {/* Cajita del logo */}
-            <div className="logo-container w-14 flex flex-col items-start">
+            <div className="sm:mt-14 sm:w-36 sm:flex-1 w-24 m-3 flex flex-col items-start">
                 <Link to="/"><img src='../src/img/logo.jpg' alt="img"/></Link>
                 {/* Cajita del menu */}
                 {/* md:flex significa que cuando se este en md size en el view dejara de ser hidden
                 y se mostrara como display flex, */}
-                <div className="first-links-menu flex flex-col">
+                <div className="sm:flex sm:flex-col sm:flex-1 sm:antialiased sm:text-left mt-10 flex flex-col">
                     <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 rounded-tr-lg transition-all mb-2' : 'mb-2 text-white'}`} to="/" >Inicio</NavLink>
                     <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 rounded-tr-lg transition-all mb-2' : 'mb-2 text-white'}`} to="/portfolio" >Portafolio</NavLink>
                 </div>
             </div>
             {/* Cajita de los links externos y el about */}
-            <div className="second-links-menu"> 
+            <div className="sm:mb-12 sm:flex sm:flex-row sm:antialiased sm:items-end sm:text-left flex m-3 sm:m-0">
               {/* links de texto */}
               <div className="flex flex-col">
-                <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 rounded-tr-lg transition-all' : 'text-white'}`} to="/about" >Sobre mi</NavLink>
+                <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 mb-2 rounded-tr-lg transition-all' : 'mb-2 text-white'}`} to="/about" >Sobre mi</NavLink>
                 <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 rounded-tr-lg transition-all' : 'text-white'}`} to="/contact" >Contacto</NavLink>
                 {/* links con iconos */}
-                <div className="icon-links"> 
+                <div className="sm:flex sm:flex-row sm:items-center sm:mt-1 sm:gap-2 flex gap-4 mt-2"> 
                   {/* <!-- Linkedin --> */}
                   <a href="https://www.linkedin.com/in/fabricio-rivera/" target="blank" className="p-0.5 fill-[#0077b5]"><svg
                     xmlns="http://www.w3.org/2000/svg"
