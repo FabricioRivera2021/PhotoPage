@@ -1,32 +1,51 @@
 /* eslint-disable no-unused-vars */
+import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 
 export const SideBar = () => {
+
+  const [open, setOpen] = useState(false)
   
+  const handleDrawerClick = () => {
+    setOpen(!open);
+  }
+
+  const handleLinkClick = () => {
+    if (open) {
+      setOpen(false);
+    }
+  }
+
   return (
-    <nav className="sm:fixed sm:w-64 sm:h-screen sm:flex sm:justify-center sm:bg-zinc-900 fixed h-screen w-[calc(100vw-4rem)] bg-zinc-900 z-50">
-        <button className='absolute top-3 right-3 bg-slate-600 p-3 rounded-sm text-white'>X</button>
-        <div className="sm:w-40 sm:h-screen sm:flex sm:flex-col sm:justify-between sm:items-start flex flex-col h-[90%] justify-between mt-9">
+    <nav className={`sm:fixed sm:w-64 sm:h-screen sm:flex sm:justify-center sm:bg-zinc-900 fixed bg-zinc-900 z-50 transition-all
+                     ${(open) ? 'h-screen w-screen opacity-95' : 'h-20 w-screen opacity-100'}`}>
+        <button className='absolute top-3 right-3 bg-zinc-700 p-3 rounded-sm text-white' onClick={handleDrawerClick}>=</button>
+        <div className={`sm:w-40 sm:h-screen sm:flex sm:flex-col sm:justify-between sm:items-start flex flex-col h-[90%] justify-center items-center text-lg text-center pb-24
+                         ${(open) ? '' : 'hidden'}`}>
             {/* Cajita del logo */}
-            <div className="sm:mt-14 sm:w-36 sm:flex-1 w-24 m-3 flex flex-col items-start">
+            <div className="sm:mt-14 sm:w-36 sm:flex-1 w-24 flex flex-col">
                 <Link to="/"><img src='../src/img/logo.jpg' alt="img"/></Link>
                 {/* Cajita del menu */}
                 {/* md:flex significa que cuando se este en md size en el view dejara de ser hidden
                 y se mostrara como display flex, */}
                 <div className="sm:flex sm:flex-col sm:flex-1 sm:antialiased sm:text-left mt-10 flex flex-col">
-                    <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 rounded-tr-lg transition-all mb-2' : 'mb-2 text-white'}`} to="/" >Inicio</NavLink>
-                    <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 rounded-tr-lg transition-all mb-2' : 'mb-2 text-white'}`} to="/portfolio" >Portafolio</NavLink>
+                    <NavLink  onClick={handleLinkClick}
+                              className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 rounded-tr-lg transition-all mb-2' : 'mb-2 text-white'}`} to="/" >Inicio</NavLink>
+                    <NavLink  onClick={handleLinkClick}
+                              className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 rounded-tr-lg transition-all mb-2' : 'mb-2 text-white'}`} to="/portfolio" >Portafolio</NavLink>
                 </div>
             </div>
             {/* Cajita de los links externos y el about */}
-            <div className="sm:mb-12 sm:flex sm:flex-row sm:antialiased sm:items-end sm:text-left flex m-3 sm:m-0">
+            <div className="sm:mb-12 sm:flex sm:flex-row sm:antialiased sm:items-end sm:text-left flex">
               {/* links de texto */}
               <div className="flex flex-col">
-                <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 mb-2 rounded-tr-lg transition-all' : 'mb-2 text-white'}`} to="/about" >Sobre mi</NavLink>
-                <NavLink className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 px-2 rounded-tr-lg transition-all' : 'text-white'}`} to="/contact" >Contacto</NavLink>
+                <NavLink  onClick={handleLinkClick}
+                          className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 mb-2 rounded-tr-lg transition-all' : 'px-2 mb-2 text-white'}`} to="/about" >Sobre mi</NavLink>
+                <NavLink  onClick={handleLinkClick}
+                          className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 rounded-tr-lg transition-all' : 'px-2 text-white'}`} to="/contact" >Contacto</NavLink>
                 {/* links con iconos */}
-                <div className="sm:flex sm:flex-row sm:items-center sm:mt-1 sm:gap-2 flex gap-4 mt-2"> 
+                <div className="sm:flex sm:flex-row sm:items-center sm:mt-1 sm:gap-2 flex justify-around mt-2"> 
                   {/* <!-- Linkedin --> */}
                   <a href="https://www.linkedin.com/in/fabricio-rivera/" target="blank" className="p-0.5 fill-[#0077b5]"><svg
                     xmlns="http://www.w3.org/2000/svg"
