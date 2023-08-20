@@ -20,7 +20,7 @@ export const SideBar = () => {
   return (
     <nav className={`sm:fixed sm:w-64 sm:h-screen sm:flex sm:justify-center sm:bg-zinc-900 fixed bg-zinc-900 z-50 transition-all
                      ${(open) ? 'h-screen w-screen opacity-95' : 'h-20 w-screen opacity-100'}`}>
-        <button className='absolute top-3 right-3 bg-zinc-700 p-3 rounded-sm text-white' onClick={handleDrawerClick}>=</button>
+        <button className='absolute top-3 right-3 bg-zinc-700 p-3 rounded-sm text-white sm:hidden' onClick={handleDrawerClick}>=</button>
         <div className={`sm:w-40 sm:h-screen sm:flex sm:flex-col sm:justify-between sm:items-start flex flex-col h-[90%] justify-center items-center text-lg text-center pb-24
                          ${(open) ? '' : 'hidden'}`}>
             {/* Cajita del logo */}
