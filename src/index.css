@@ -21,32 +21,17 @@
     }
   }
 
-  /* clases para el responsive */
-  /* DESKTOP */
-  /* Pagina principal */
-  .main-container{
-    @apply sm:fixed sm:w-64 sm:h-screen sm:flex sm:justify-center sm:bg-zinc-900;
-  }
-  .subMain-container{
-    @apply sm:w-40 sm:h-screen sm:flex sm:flex-col sm:justify-between sm:items-start;
-  }
-  .logo-container{
-    @apply sm:mt-14 sm:w-36 sm:flex-1;
-  }
-  .first-links-menu{
-    @apply sm:flex sm:flex-col sm:flex-1 sm:antialiased sm:text-left sm:mt-10;
-  }
-  .second-links-menu{
-    @apply sm:mb-12 sm:flex sm:flex-row sm:antialiased sm:items-end sm:text-left;
-  }
-  .icon-links{
-    @apply sm:flex sm:flex-row sm:items-center sm:mt-1 sm:gap-2;
-  }
   
 
   /* Clases para el zoom de las imagenes */
   .card-zoom {
-    @apply top-28 flex items-center justify-center overflow-hidden min-w-[350px] h-full;
+    @apply w-[80vw] h-[10rem];
+  }
+
+  @screen sm{
+    .card-zoom{
+      @apply top-28 flex items-center justify-center overflow-hidden min-w-[350px] w-auto h-full;
+    }
   }
 
   .card-zoom-image {

@@ -25,7 +25,7 @@ export const MainSlides = ({slides}) => {
     }, [currentImg])
 
     return (
-    <div className="sm:absolute sm:left-[16rem] sm:h-screen sm:pt-0 sm:w-[calc(100%-16rem)] sm:bg-gradient-to-r sm:from-zinc-900 sm:to-transparent sm:animate-gradient-x
+    <div className="sm:absolute sm:left-[16rem] h-screen sm:pt-0 sm:w-[calc(100%-16rem)] sm:bg-gradient-to-r sm:from-zinc-900 sm:to-transparent sm:animate-gradient-x
                     flex flex-col justify-center items-center pt-20">
         <div className="sm:antialiased text-center pt-10 sm:pb-3 sm:pt-0 sm:drop-shadow-xl sm:bg-gradient-to-r sm:from-stone-400 sm:via-slate-200 sm:to-zinc-50 sm:text-transparent sm:bg-clip-text">
             <h1 className="font-normal text-xl sm:text-5xl tracking-widest uppercase sm:p-2 sm:text-zinc-800">Fabricio Rivera <span className="font-black tracking-[0.5rem] text-zinc-800"><br />Fotografía</span></h1>
@@ -44,7 +44,7 @@ export const MainSlides = ({slides}) => {
             
             </div>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 mb-4 sm:m-0">
             {slides.map((elem, index) => (
                 (currentImg === (index * 100) )
                     ?
