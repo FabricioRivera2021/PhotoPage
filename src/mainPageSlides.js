@@ -17,4 +17,7 @@ export const slides = [
     {
       name: "./src/img/portadaExt.jpg"
     },
+    {
+      name: "./src/img/exteriores (2).jpg"
+    },
   ]

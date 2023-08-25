@@ -8,7 +8,7 @@ export const MainSlides = ({slides}) => {
     const [currentImg, setCurrentImg] = useState(0);
 
     let timer = setTimeout(() => {
-        if(currentImg >= 500){
+        if(currentImg >= 600){
             setCurrentImg(0)
         }else{
             setCurrentImg(currentImg + 100)
@@ -17,9 +17,14 @@ export const MainSlides = ({slides}) => {
 
     useEffect(() => {
         // timer
+        if(currentImg === 600){
+            setTimeout(() => {
+                    setCurrentImg(0)
+            }, 1000);
+        }
 
         return () => {
-            clearTimeout(timer)
+            clearTimeout(timer);
         }
 
     }, [currentImg])
@@ -34,7 +39,7 @@ export const MainSlides = ({slides}) => {
             <p className="px-8 sm:p-0 text-left sm:text-xl">Tambien hago fotografía de producto, te invito a que veas mis trabajos en la sección de portafolio.</p>
         </div>
         <div className="mb-0 sm:mb-4 h-[60vh] sm:h-[75vh] sm:w-[calc(100%-36rem)] overflow-hidden">
-            <div className='h-full w-screen sm:w-full mx-auto bg-contain bg-no-repeat bg-center transition-transform ease-out duration-1000 flex items-center' 
+            <div className={`h-full w-screen sm:w-full mx-auto bg-contain bg-no-repeat bg-center ${(currentImg == 0) ? '' : 'transition-transform ease-out duration-1000'} flex items-center`}
                  style={{transform: `translateX(-${currentImg}%)`}}>
                     {
                         slides.map((image, index) => (
@@ -54,7 +59,8 @@ export const MainSlides = ({slides}) => {
                          onClick={()=>{
                             setCurrentImg(index * 100)
                          }}></div>
-            ))}
+            )).filter((div, index) => index != 6 )
+            }
         </div>
     </div>
     )
