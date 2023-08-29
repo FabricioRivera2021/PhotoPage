@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 export const MainSlides = ({slides}) => {
 
     const [currentImg, setCurrentImg] = useState(0);
+    const [flag, setFlag] = useState(true);
 
     let timer = setTimeout(() => {
         if(currentImg >= 600){
@@ -23,11 +24,18 @@ export const MainSlides = ({slides}) => {
             }, 1000);
         }
 
+        if(currentImg != 0 && flag == false){
+            setFlag(true);
+        }
+
         return () => {
             clearTimeout(timer);
         }
-
     }, [currentImg])
+
+    console.log(currentImg)
+
+    console.log(flag)
 
     return (
     <div className="sm:absolute sm:left-[16rem] h-screen sm:pt-0 sm:w-[calc(100%-16rem)] sm:bg-gradient-to-r sm:from-zinc-900 sm:to-transparent sm:animate-gradient-x
@@ -39,7 +47,7 @@ export const MainSlides = ({slides}) => {
             <p className="px-8 sm:p-0 text-left sm:text-xl">Tambien hago fotografía de producto, te invito a que veas mis trabajos en la sección de portafolio.</p>
         </div>
         <div className="mb-0 sm:mb-4 h-[60vh] sm:h-[75vh] sm:w-[calc(100%-36rem)] overflow-hidden">
-            <div className={`h-full w-screen sm:w-full mx-auto bg-contain bg-no-repeat bg-center ${(currentImg == 0) ? '' : 'transition-transform ease-out duration-1000'} flex items-center`}
+            <div className={`h-full w-screen sm:w-full mx-auto bg-contain bg-no-repeat bg-center ${(currentImg == 0 && flag) ? '' : 'transition-transform ease-out duration-1000'} flex items-center`}
                  style={{transform: `translateX(-${currentImg}%)`}}>
                     {
                         slides.map((image, index) => (
@@ -51,15 +59,20 @@ export const MainSlides = ({slides}) => {
         </div>
         <div className="flex gap-2 mb-4 sm:m-0">
             {slides.map((elem, index) => (
-                (currentImg === (index * 100) )
+                (currentImg === (index * 100))
                     ?
                     <div key={index} className="w-5 h-[5px] bg-primary-400 sm:bg-white hover:cursor-pointer rounded-lg"></div>
                     :
                     <div key={index} className="w-5 h-[5px] bg-zinc-700 hover:cursor-pointer rounded-lg" 
                          onClick={()=>{
-                            setCurrentImg(index * 100)
+                            if(index === 0){
+                                setFlag(false);
+                                setCurrentImg(0);
+                            }else{
+                                setCurrentImg(index * 100);
+                            }
                          }}></div>
-            )).filter((div, index) => index != 6 )
+            )).filter((div, index) => index != 6)
             }
         </div>
     </div>
