@@ -33,10 +33,6 @@ export const MainSlides = ({slides}) => {
         }
     }, [currentImg])
 
-    console.log(currentImg)
-
-    console.log(flag)
-
     return (
     <div className="sm:absolute sm:left-[16rem] h-screen sm:pt-0 sm:w-[calc(100%-16rem)] sm:bg-gradient-to-r sm:from-zinc-900 sm:to-transparent sm:animate-gradient-x
                     flex flex-col justify-center items-center pt-20">
