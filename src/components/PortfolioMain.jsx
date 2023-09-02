@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react';
-import {NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom';
+import {GoToTop} from './helpers/goToTop';
 
 export const PortfolioMain = () => {
 
@@ -17,10 +18,11 @@ export const PortfolioMain = () => {
   }, []);
 
   return (
-    <div className="relative top-0 sm:left-[16rem] w-screen sm:w-[calc(100%-16rem)] sm:h-[100vh] bg-zinc-100 sm:bg-gradient-to-r sm:from-zinc-900 sm:to-transparent sm:animate-gradient-x">
+    <div className="relative top-0 sm:left-[16rem] w-screen sm:w-[calc(100%-16rem)] sm:h-[100vh] bg-zinc-100 sm:bg-gradient-to-r 
+                  sm:from-zinc-900 sm:to-transparent sm:animate-gradient-x">
       <div className="w-full h-full bg-opacity-60 flex flex-col justify-end">
 
-        <div className="flex flex-col sm:flex-row w-full  sm:h-full sm:justify-around gap-5 sm:px-10 py-20 sm:items-center">
+        <div className="flex flex-col lg:flex-row w-full sm:h-full sm:justify-around gap-5 sm:px-10 py-20 sm:items-center">
           <NavLink className="flex-1 h-full" to="/portfolio/sesiones">
             <div className="card-zoom">
               <div className='card-zoom-image bg-sesionesBg-img'>
