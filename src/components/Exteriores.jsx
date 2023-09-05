@@ -18,7 +18,7 @@ export const Exteriores = () => {
     <div className="absolute sm:left-[16rem] sm:w-[calc(100%-16rem)] overflow-hidden bg-zinc-900">
         <div className='bg-exterioresPageBg bg-cover bg-center h-full w-full opacity-90'>
             <div className='flex justify-center items-center w-full h-screen bg-cover sm:bg-gradient-to-r sm:from-zinc-900 sm:to-transparent backdrop-blur-sm'>
-            <div className='flex w-[70%] h-[50%] flex-col justify-center items-center bg-slate-700 sm:bg-transparent rounded-lg'>
+            <div className='flex w-[70%] h-[55%] flex-col justify-center items-center bg-slate-700 sm:bg-transparent rounded-lg'>
                     <h2 className='text-white font-normal text-center sm:mb-1 text-[1.7rem] sm:text-6xl uppercase'>Sesiones en exterior</h2>
                     <h3 className='text-white font-light text-center  mb-5 text-[1.2rem] sm:text-xl uppercase'>de retrato</h3>
                     <p className='text-white max-w-xl text-center flex flex-col justify-center items-center w-[70%]'>
