@@ -37,7 +37,7 @@ export const SideBar = () => {
                 </div>
             </div>
             {/* Cajita de los links externos y el about */}
-            <div className="sm:mb-12 sm:flex sm:flex-row sm:antialiased sm:items-end sm:text-left flex">
+            <div className="sm:mb-0 sm:flex sm:flex-row sm:antialiased sm:items-end sm:text-left flex">
               {/* links de texto */}
               <div className="flex flex-col">
                 <NavLink  onClick={handleLinkClick}
