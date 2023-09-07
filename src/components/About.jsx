@@ -13,7 +13,7 @@ export const About = () => {
                 <p className="text-lg pb-5">Me llamo Fabricio Rivera y me dedico principalmente a la fotografia en estudio, ya sea para retratos o productos. Ademas tambien hago sesiones en exteriores,
                 siempre trato de transmitir mi pasion por la fotos en todas las sesiones que realizo. 
                 </p>
-                <div className="columns-2">
+                <div className="sm:columns-2">
                   <img className="px-3 sm:w-[50rem]" src=".\src\img\aboutimg.jpg" alt="image" />
                   <p className="text-lg px-4 sm:px-0 pt-2">Me encanta hacer retratos, siempre tratando de sacar la mejor imagen posible de la persona retratada. Cada persona es diferente y es mi trabajo buscar y conseguir 
                   una imagen interesante y profesional.

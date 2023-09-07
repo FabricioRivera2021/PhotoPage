@@ -30,12 +30,12 @@
 
   @screen sm{
     .card-zoom{
-      @apply top-28 flex items-center justify-center min-w-[350px] w-auto h-full blur-[0px];
+      @apply top-28 flex items-center justify-center min-w-[350px] w-auto h-full mb-0 blur-[0px];
     }
   }
 
   .card-zoom-image {
-    @apply flex flex-col h-[50vh] w-screen bg-cover bg-center;
+    @apply flex flex-col h-[70vh] w-screen bg-cover bg-center;
   }
 
   @screen sm{

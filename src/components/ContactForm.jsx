@@ -1,23 +1,23 @@
 export const ContactForm = () => {
   return (
-    <div className="absolute top-20 sm:pt-0 sm:top-0 sm:left-[16rem] bg-contact-img bg-no-repeat bg-center bg-cover sm:w-[calc(100%-16rem)] md:px-6 h-[100vh]">
+    <div className="absolute top-20 lg:pt-0 sm:top-0 sm:left-[16rem] bg-contact-img bg-no-repeat bg-center bg-cover sm:w-[calc(100%-16rem)] sm:px-6 h-[100vh]">
       <div className="absolute top-0 w-full left-0 h-full bg-gradient-to-r from-zinc-900 to-transparent backdrop-blur-sm">
         {/* el efecto de la opacidad */}
         {/* <div className="absolute top-[50%] left-0 w-full h-[calc(50%)] bg-slate-900 bg-opacity-80"></div> */}
       </div>
 
-      <section className="flex flex-col sm:space-y-20 space-y-10 justify-center items-center h-full">
+      <section className="flex flex-col lg:space-y-20 space-y-10 justify-center items-center h-full">
       
         <div className="z-50 text-center space-y-3">
-          <h2 className="font-semibold sm:text-5xl text-lg tracking-wide text-white">Contactanos llenando el formulario</h2>
+          <h2 className="font-semibold lg:text-5xl text-lg tracking-wide text-white">Contactanos llenando el formulario</h2>
           <p className="text-white">Dejanos tus datos y el tipo de sesion que quieres y nos pondremos en contacto a la brevedad</p>
         </div>
       
-        <div className="bg-slate-800 sm:w-[1000px] sm:h-[400px] z-10 sm:mt-72 opacity-95 grid content-end">
-          <div className="flex sm:flex-row flex-col justify-center items-center mx-auto sm:w-[56rem] sm:h-[140px] h-[300px] gap-3">
-            <div className="flex justify-start sm:justify-center items-center gap-5 bg-slate-900 w-[19rem] sm:w-auto p-2 px-6 rounded-lg">
+        <div className="bg-slate-800 lg:w-[1000px] lg:h-[400px] z-10 lg:mt-72 opacity-95 grid content-end">
+          <div className="flex lg:flex-row flex-col justify-center items-center mx-auto lg:w-[56rem] lg:h-[140px] h-[300px] gap-3">
+            <div className="flex justify-start lg:justify-center items-center gap-5 bg-slate-900 w-[19rem] lg:w-auto p-2 px-6 rounded-lg">
             
-                    <svg className="sm:h-12 h-10 w-12 text-red-500 rounded-lg"  
+                    <svg className="lg:h-12 h-10 w-12 text-red-500 rounded-lg"  
                         width="27" 
                         height="27" 
                         viewBox="0 0 24 24" 
@@ -30,12 +30,12 @@ export const ContactForm = () => {
                         <rect x="3" y="5" width="18" height="14" rx="2" />  
                         <polyline points="3 7 12 13 21 7" />
                     </svg>
-                    <p className="text-white sm:text-base text-sm">fabricio.rivera2012@gmail.com</p>
+                    <p className="text-white lg:text-base text-sm">fabricio.rivera2012@gmail.com</p>
             
             </div>
-            <div className="flex justify-start sm:justify-center items-center gap-4 bg-slate-900 w-[19rem] sm:w-auto p-2 px-6 rounded-lg">
+            <div className="flex justify-start lg:justify-center items-center gap-4 bg-slate-900 w-[19rem] lg:w-auto p-2 px-6 rounded-lg">
             
-                    <svg className="sm:h-12 h-10 w-11 text-red-500"  
+                    <svg className="lg:h-12 h-10 w-11 text-red-500"  
                         width="27" 
                         height="27" 
                         viewBox="0 0 24 24" 
@@ -51,12 +51,12 @@ export const ContactForm = () => {
                         <path d="M11.5 3a17 17 0 0 0 0 18" />  
                         <path d="M12.5 3a17 17 0 0 1 0 18" />
                     </svg>
-                    <p className="text-white sm:text-base text-sm">FabricioRivera.com</p>
+                    <p className="text-white lg:text-base text-sm">FabricioRivera.com</p>
       
             </div>
-            <div className="flex justify-start sm:justify-center items-center gap-4 bg-slate-900 w-[19rem] sm:w-auto p-2 px-6 rounded-lg">
+            <div className="flex justify-start lg:justify-center items-center gap-4 bg-slate-900 w-[19rem] lg:w-auto p-2 px-6 rounded-lg">
             
-                    <svg className="sm:h-12 h-10 w-11 text-red-500"  
+                    <svg className="lg:h-12 h-10 w-11 text-red-500"  
                          viewBox="0 0 24 24"  
                          fill="none"  
                          stroke="currentColor"  
@@ -67,13 +67,13 @@ export const ContactForm = () => {
                          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />  
                          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                     </svg>
-                    <p className="text-white sm:text-base text-sm">Instagram</p>
+                    <p className="text-white lg:text-base text-sm">Instagram</p>
       
             </div>
           </div>
 
 
-          <form action="" className="grid sm:grid-flow-col grid-flow-row sm:grid-cols-2 grid-rows-7 sm:grid-rows-4 px-14 pb-4 relative">
+          <form action="" className="grid lg:grid-flow-col grid-flow-row lg:grid-cols-2 grid-rows-7 lg:grid-rows-4 px-14 pb-4 relative">
 
                   <div className="relative w-full mb-6 pr-8" data-te-input-wrapper-init>
                     <input
