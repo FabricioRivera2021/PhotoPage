@@ -39,11 +39,11 @@ export const MainSlides = ({slides}) => {
         <div className="antialiased text-center pt-10 lg:pb-3 lg:pt-0 sm:drop-shadow-xl lg:bg-gradient-to-r lg:from-stone-400 lg:via-slate-200 lg:to-zinc-50 lg:text-transparent lg:bg-clip-text">
             <h1 className="font-normal text-xl lg:text-5xl tracking-widest uppercase lg:p-2 lg:text-zinc-800">Fabricio Rivera <span className="font-black tracking-[0.5rem] text-zinc-800"><br />Fotografía</span></h1>
             <hr />
-            <p className="p-8 lg:p-0 text-left lg:text-xl">Hola y bienvenido a mi página dedicada a la fotografía, me especializo en realizar sesiones de retrato tanto en exteriores como en estudio.</p>
-            <p className="px-8 lg:p-0 text-left lg:text-xl">Tambien hago fotografía de producto, te invito a que veas mis trabajos en la sección de portafolio.</p>
+            <p className="p-8 sm:pt-2 sm:pb-0 text-left lg:text-center lg:text-xl">Hola y bienvenido a mi página dedicada a la fotografía, me especializo en realizar sesiones de retrato tanto en exteriores como en estudio.</p>
+            <p className="px-8 text-left lg:text-xl lg:text-center">Tambien hago fotografía de producto, te invito a que veas mis trabajos en la sección de portafolio.</p>
         </div>
-        <div className="relative mb-0 lg:mb-4 h-[60vh] lg:h-[75vh] lg:w-[calc(100%-36rem)] overflow-hidden">
-            <div className={`h-full w-[80%] lg:w-full mx-auto bg-contain bg-no-repeat bg-center ${(currentImg == 0 && flag) ? '' : 'transition-transform ease-out duration-1000'} flex items-center`}
+        <div className="relative mb-0 lg:mb-4 h-[60vh] lg:h-[90vh] lg:w-[65%] overflow-hidden">
+            <div className={`h-full w-[80%] lg:w-[100%] mx-auto bg-contain bg-no-repeat bg-center ${(currentImg == 0 && flag) ? '' : 'transition-transform ease-out duration-1000'} flex items-center`}
                  style={{transform: `translateX(-${currentImg}%)`}}>
                     {
                         slides.map((image, index) => (
@@ -52,12 +52,12 @@ export const MainSlides = ({slides}) => {
                     }
             
             </div>
-            <div className="lg:hidden absolute top-10 w-[10%] h-[85%] bg-white">
+            <div className="lg:hidden absolute top-0 w-[10%] h-[100%] bg-white">
             </div>
-            <div className="lg:hidden absolute top-10 right-0 w-[10%] h-[85%] bg-white">
+            <div className="lg:hidden absolute top-0 right-0 w-[10%] h-[100%] bg-white">
             </div>
         </div>
-        <div className="flex gap-2 mt-3 mb-4 lg:m-0">
+        <div className="flex gap-2 mt-3 pb-4 lg:m-0">
             {slides.map((elem, index) => (
                 (currentImg === (index * 100))
                     ?
