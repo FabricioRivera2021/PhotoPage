@@ -18,14 +18,14 @@ export const SideBar = () => {
   }
 
   return (
-    <nav className={`sm:fixed sm:w-64 sm:h-screen sm:flex sm:justify-center sm:bg-zinc-900 fixed bg-zinc-900 z-50 transition-all
+    <nav className={`sm:fixed sm:w-80 sm:h-screen sm:flex sm:pl-7 sm:bg-zinc-900 fixed bg-zinc-900 z-50 transition-all
                      ${(open) ? 'h-screen w-screen opacity-95' : 'h-20 w-screen opacity-100'}`}>
         <button className='absolute top-3 right-3 bg-zinc-700 p-3 rounded-sm text-white sm:hidden' onClick={handleDrawerClick}>=</button>
-        <div className={`sm:w-40 sm:h-screen sm:flex sm:flex-col sm:justify-between sm:items-start flex flex-col h-[90%] justify-center items-center text-lg text-center pb-24
+        <div className={`sm:w-40 sm:h-screen sm:flex sm:flex-col sm:justify-between sm:items-start flex flex-col h-[90%] justify-center items-center text-lg text-center pb-10
                          ${(open) ? '' : 'hidden'}`}>
             {/* Cajita del logo */}
-            <div className="sm:mt-14 sm:w-36 sm:flex-1 w-24 flex flex-col">
-                <Link to="/"><img src='../src/img/logo.jpg' alt="img"/></Link>
+            <div className="sm:mt-14 sm:w-64 sm:flex-1 w-24 flex flex-col">
+                <Link to="/"><img src='../src/img/logo-fotografia-fondo-negro.svg' alt="img"/></Link>
                 {/* Cajita del menu */}
                 {/* md:flex significa que cuando se este en md size en el view dejara de ser hidden
                 y se mostrara como display flex, */}
@@ -41,11 +41,11 @@ export const SideBar = () => {
               {/* links de texto */}
               <div className="flex flex-col">
                 <NavLink  onClick={handleLinkClick}
-                          className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 mb-2 rounded-tr-lg transition-all' : 'px-2 mb-2 text-white'}`} to="/about" >Sobre mi</NavLink>
+                          className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 rounded-tr-lg transition-all mb-2 pl-2' : 'mb-2 pr-12 text-white'}`} to="/about" >Sobre mi</NavLink>
                 <NavLink  onClick={handleLinkClick}
-                          className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 rounded-tr-lg transition-all' : 'px-2 text-white'}`} to="/contact" >Contacto</NavLink>
+                          className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 rounded-tr-lg transition-all mb-2 pl-2' : 'mb-2 pr-12 text-white'}`} to="/contact" >Contacto</NavLink>
                 {/* links con iconos */}
-                <div className="sm:flex sm:flex-row sm:items-center sm:mt-1 sm:gap-2 flex justify-around mt-2"> 
+                <div className="sm:flex sm:flex-row sm:items-center sm:mt-1 sm:gap-2 flex mt-2"> 
                   {/* <!-- Linkedin --> */}
                   <a href="https://www.linkedin.com/in/fabricio-rivera/" target="blank" className="p-0.5 fill-[#0077b5]"><svg
                     xmlns="http://www.w3.org/2000/svg"

@@ -1,6 +1,6 @@
 export const ContactForm = () => {
   return (
-    <div className="absolute top-20 lg:pt-0 sm:top-0 sm:left-[16rem] bg-contact-img bg-no-repeat bg-center bg-cover sm:w-[calc(100%-16rem)] sm:px-6 h-[100vh]">
+    <div className="absolute top-20 lg:pt-0 sm:top-0 sm:left-[20rem] bg-contact-img bg-no-repeat bg-center bg-cover sm:w-[calc(100%-20rem)] sm:px-6 h-[100vh]">
       <div className="absolute top-0 w-full left-0 h-full bg-gradient-to-r from-zinc-900 to-transparent backdrop-blur-sm">
         {/* el efecto de la opacidad */}
         {/* <div className="absolute top-[50%] left-0 w-full h-[calc(50%)] bg-slate-900 bg-opacity-80"></div> */}

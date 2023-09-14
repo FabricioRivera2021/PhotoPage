@@ -3,7 +3,7 @@
 
 export const About = () => {
   return (
-    <div className="absolute sm:top-5 top-20 sm:p-10 p-5 sm:left-[16rem] sm:w-[calc(100%-17rem)] h-[calc(100vh-20px)]">
+    <div className="absolute sm:top-5 top-20 sm:p-10 p-5 sm:left-[20rem] sm:w-[calc(100%-20rem)] h-[calc(100vh-20px)]">
         <div>
             <h2 className="sm:px-0 px-4">Hola !</h2>
             <hr />

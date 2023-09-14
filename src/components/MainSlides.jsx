@@ -34,7 +34,7 @@ export const MainSlides = ({slides}) => {
     }, [currentImg])
 
     return (
-    <div className="sm:absolute sm:left-[16rem] h-screen lg:pt-0 sm:w-[calc(100%-16rem)] lg:bg-gradient-to-r lg:from-zinc-900 lg:to-transparent lg:animate-gradient-x
+    <div className="sm:absolute sm:left-[20rem] h-screen lg:pt-0 sm:w-[calc(100%-20rem)] lg:bg-gradient-to-r lg:from-zinc-900 lg:to-transparent lg:animate-gradient-x
                     flex flex-col justify-center items-center pt-20 sm:pt-0">
         <div className="antialiased text-center pt-10 lg:pb-3 lg:pt-0 sm:drop-shadow-xl lg:bg-gradient-to-r lg:from-stone-400 lg:via-slate-200 lg:to-zinc-50 lg:text-transparent lg:bg-clip-text">
             <h1 className="font-normal text-xl lg:text-5xl tracking-widest uppercase lg:p-2 lg:text-zinc-800">Fabricio Rivera <span className="font-black tracking-[0.5rem] text-zinc-800"><br />Fotografía</span></h1>

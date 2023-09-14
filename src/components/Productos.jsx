@@ -14,7 +14,7 @@ export const Productos = () => {
     };
 
     return (
-        <div className="absolute sm:left-[16rem] sm:w-[calc(100%-16rem)] overflow-hidden bg-zinc-900">
+        <div className="absolute sm:left-[20rem] sm:w-[calc(100%-20rem)] overflow-hidden bg-zinc-900">
         <div className='bg-productosPageBg bg-cover bg-center h-full w-full opacity-90'>
             <div className='flex justify-center items-center w-full h-screen bg-cover sm:bg-gradient-to-r sm:from-zinc-900 sm:to-transparent backdrop-blur-sm'>
                 <div className='flex w-[80%] py-4  flex-col justify-center items-center bg-slate-700 sm:bg-transparent rounded-lg'>
