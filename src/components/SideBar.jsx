@@ -69,6 +69,9 @@ export const SideBar = () => {
                   </div>
                 </div>
             </div>
+                <footer>
+                  <p className='text-gray-300 text-xs mt-5'>Fabricio Rivera &copy; 2023</p>
+                </footer>
         </div>
     </nav>
   )
