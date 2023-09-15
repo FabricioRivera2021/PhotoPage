@@ -41,11 +41,11 @@ export const SideBar = () => {
               {/* links de texto */}
               <div className="flex flex-col">
                 <NavLink  onClick={handleLinkClick}
-                          className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 rounded-tr-lg transition-all mb-2 pl-2' : 'mb-2 pr-12 text-white'}`} to="/about" >Sobre mi</NavLink>
+                          className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 rounded-tr-lg transition-all mb-2 pl-0 sm:pl-2' : 'mb-2 sm:pr-12 pr-0 text-white'}`} to="/about" >Sobre mi</NavLink>
                 <NavLink  onClick={handleLinkClick}
-                          className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 rounded-tr-lg transition-all mb-2 pl-2' : 'mb-2 pr-12 text-white'}`} to="/contact" >Contacto</NavLink>
+                          className={({isActive}) => `nav-item nav-link ${isActive ? 'text-white bg-zinc-700 rounded-tr-lg transition-all mb-2 pl-0 sm:pl-2' : 'mb-2 sm:pr-12 pr-0 text-white'}`} to="/contact" >Contacto</NavLink>
                 {/* links con iconos */}
-                <div className="sm:flex sm:flex-row sm:items-center sm:mt-1 sm:gap-2 flex mt-2"> 
+                <div className="sm:flex sm:flex-row sm:items-center sm:mt-1 sm:gap-2 flex mt-2 justify-around sm:justify-start"> 
                   {/* <!-- Linkedin --> */}
                   <a href="https://www.linkedin.com/in/fabricio-rivera/" target="blank" className="p-0.5 fill-[#0077b5]"><svg
                     xmlns="http://www.w3.org/2000/svg"
