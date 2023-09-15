@@ -8,7 +8,7 @@ export const ContactForm = () => {
 
       <section className="flex flex-col lg:space-y-20 space-y-10 justify-center items-center h-full">
       
-        <div className="z-50 text-center space-y-3">
+        <div className="z-40 text-center space-y-3">
           <h2 className="font-semibold lg:text-5xl text-lg tracking-wide text-white">Contactanos llenando el formulario</h2>
           <p className="text-white">Dejanos tus datos y el tipo de sesion que quieres y nos pondremos en contacto a la brevedad</p>
         </div>

@@ -24,7 +24,7 @@ export const SideBar = () => {
         <div className={`sm:w-40 sm:h-screen sm:flex sm:flex-col sm:justify-between sm:items-start flex flex-col h-[90%] justify-center items-center text-lg text-center pb-10
                          ${(open) ? '' : 'hidden'}`}>
             {/* Cajita del logo */}
-            <div className="sm:mt-14 sm:w-64 sm:flex-1 w-24 flex flex-col">
+            <div className="sm:mt-14 sm:w-64 sm:flex-1 w-[11rem] flex flex-col">
                 <Link to="/"><img src='../src/img/logo-fotografia-fondo-negro.svg' alt="img"/></Link>
                 {/* Cajita del menu */}
                 {/* md:flex significa que cuando se este en md size en el view dejara de ser hidden
