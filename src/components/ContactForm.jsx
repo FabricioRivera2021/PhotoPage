@@ -1,4 +1,39 @@
+import { Link } from "react-router-dom";
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+import { useForm } from "./hooks/useForm";
+
 export const ContactForm = () => {
+
+  const [focusedField, setFocusedField] = useState(null);
+  const {name, email, tel, msg, onInputChange, onResetForm} = useForm();
+  const [mensaje, setMensaje] = useState('');
+
+  const formRef = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_h8chisp', 'template_q4m1hlr', formRef.current, 'FMvO-AnPa6aj_o0yG')
+      .then((result) => {
+          console.log(result.text);
+          setMensaje(result.text);
+      }, (error) => {
+          console.log(error.text);
+          setMensaje(error.text);
+      });
+
+    onResetForm();
+  };
+
+  const handleInputFocus = (field) => {
+    setFocusedField(field);
+  };
+
+  const handleInputBlur = () => {
+    setFocusedField(null);
+  };
+
   return (
     <div className="absolute top-20 lg:pt-0 sm:top-0 sm:left-[20rem] bg-contact-img bg-no-repeat bg-center bg-cover sm:w-[calc(100%-20rem)] sm:px-6 h-[100vh]">
       <div className="absolute top-0 w-full left-0 h-full bg-gradient-to-r from-zinc-900 to-transparent backdrop-blur-sm">
@@ -51,7 +86,7 @@ export const ContactForm = () => {
                         <path d="M11.5 3a17 17 0 0 0 0 18" />  
                         <path d="M12.5 3a17 17 0 0 1 0 18" />
                     </svg>
-                    <p className="text-white lg:text-base text-sm">FabricioRivera.com</p>
+                    <p className="text-white lg:text-base text-sm"><Link to={'https://fabriciorivera.com/'} target={'_blank'}>FabricioRivera.com</Link></p>
       
             </div>
             <div className="flex justify-start lg:justify-center items-center gap-4 bg-slate-900 w-[19rem] lg:w-auto p-2 px-6 rounded-lg">
@@ -67,76 +102,84 @@ export const ContactForm = () => {
                          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />  
                          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                     </svg>
-                    <p className="text-white lg:text-base text-sm">Instagram</p>
+                    <p className="text-white lg:text-base text-sm"><Link to={'https://www.instagram.com/fabricio_riv/'} target={'_blank'}>Instagram</Link></p>
       
             </div>
           </div>
 
 
-          <form action="" className="grid lg:grid-flow-col grid-flow-row lg:grid-cols-2 grid-rows-7 lg:grid-rows-4 px-14 pb-4 relative">
+          <form ref={formRef} onSubmit={sendEmail} action="" className="grid lg:grid-flow-col grid-flow-row lg:grid-cols-2 grid-rows-7 lg:grid-rows-4 px-14 pb-1 relative">
 
+                  {/* NOMBRE */}
                   <div className="relative w-full mb-6 pr-8" data-te-input-wrapper-init>
                     <input
                       type="text"
                       className="peer block min-h-[auto] w-full rounded border-0 bg-slate-500 py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear 
-                                 focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200
-                                 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                 focus:placeholder-opacity-0 peer-focus:text-primary dark:text-neutral-200 dark:placeholder-text-neutral-200"
                       id="exampleInput90"
-                      placeholder="Name"
+                      name="name"
+                      value={name || ''}
+                      onChange={onInputChange}
+                      onFocus={() => handleInputFocus('name')}
+                      onBlur={handleInputBlur}
                     />
                     <label
-                      className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0]  truncate pt-[0.37rem] leading-[1.6]  text-neutral-500 
-                                 transition-all duration-200 ease-out  peer-focus:-translate-y-[1.5rem] peer-focus:-translate-x-[0.5rem] peer-focus:scale-[0.8] 
-                                 peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] 
-                                 motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
+                     className={`pointer-events-none absolute top-0 left-3 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out ${
+                      (focusedField === 'name') || name?.length > 0 ? 'transform -translate-y-[1.5rem] -translate-x-[0.5rem] scale-[0.8] dark:peer-focus:text-primary' : ''} dark:text-neutral-200`}
                       htmlFor="exampleInput90"
                     >
                       Nombre
                     </label>
                   </div>
 
+                  {/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
+                  {/* EMAIL */}
                   <div className="relative w-full mb-6 pr-8" data-te-input-wrapper-init>
                     <input
                       type="text"
-                      className="peer block min-h-[auto] w-full  rounded  border-0  bg-slate-500 py-[0.32rem]  px-3 leading-[1.6]  outline-none transition-all 
-                                 duration-200 ease-linear  focus:placeholder:opacity-100  peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 
-                                 motion-reduce:transition-none dark:text-neutral-200  dark:placeholder:text-neutral-200  dark:peer-focus:text-primary 
-                                 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                      className="peer block min-h-[auto] w-full rounded border-0 bg-slate-500 py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear 
+                                 focus:placeholder-opacity-0 peer-focus:text-primary dark:text-neutral-200 dark:placeholder-text-neutral-200"
                       id="exampleInput90"
-                      placeholder="Email"
+                      name="email"
+                      value={email || ''}
+                      onChange={onInputChange}
+                      onFocus={() => handleInputFocus('email')}
+                      onBlur={handleInputBlur}
                     />
                     <label
-                      className="pointer-events-none absolute top-0  left-3 mb-0  max-w-[90%]  origin-[0_0] truncate  pt-[0.37rem]  leading-[1.6]  text-neutral-500 
-                                 transition-all duration-200  ease-out  peer-focus:-translate-y-[1.5rem]  peer-focus:-translate-x-[0.5rem]  peer-focus:scale-[0.8] 
-                                 peer-focus:text-primary  peer-data-[te-input-state-active]:-translate-y-[0.9rem]  peer-data-[te-input-state-active]:scale-[0.8] 
-                                 motion-reduce:transition-none  dark:text-neutral-200  dark:peer-focus:text-primary"
+                     className={`pointer-events-none absolute top-0 left-3 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out ${
+                      (focusedField === 'email') || email?.length > 0 ? 'transform -translate-y-[1.5rem] -translate-x-[0.5rem] scale-[0.8] dark:peer-focus:text-primary' : ''} dark:text-neutral-200`}
                       htmlFor="exampleInput90"
                     >
                       Email
                     </label>
                   </div>
 
+                   {/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
+                  {/* TELEFONO */}
                   <div className="relative w-full mb-6 pr-8" data-te-input-wrapper-init>
                     <input
                       type="text"
-                      className="peer block min-h-[auto] w-full  rounded  border-0  bg-slate-500 py-[0.32rem]  px-3 leading-[1.6]  outline-none transition-all 
-                                 duration-200 ease-linear  focus:placeholder:opacity-100  peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 
-                                 motion-reduce:transition-none dark:text-neutral-200  dark:placeholder:text-neutral-200  dark:peer-focus:text-primary 
-                                 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                      className="peer block min-h-[auto] w-full rounded border-0 bg-slate-500 py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear 
+                                 focus:placeholder-opacity-0 peer-focus:text-primary dark:text-neutral-200 dark:placeholder-text-neutral-200"
                       id="exampleInput90"
-                      placeholder="Tel"
+                      name="tel"
+                      value={tel || ''}
+                      onChange={onInputChange}
+                      onFocus={() => handleInputFocus('tel')}
+                      onBlur={handleInputBlur}
                     />
                     <label
-                      className="pointer-events-none absolute top-0  left-3 mb-0  max-w-[90%]  origin-[0_0] truncate  pt-[0.37rem]  leading-[1.6]  text-neutral-500 
-                                 transition-all duration-200  ease-out  peer-focus:-translate-y-[1.5rem]  peer-focus:-translate-x-[0.5rem]  peer-focus:scale-[0.8] 
-                                 peer-focus:text-primary  peer-data-[te-input-state-active]:-translate-y-[0.9rem]  peer-data-[te-input-state-active]:scale-[0.8] 
-                                 motion-reduce:transition-none  dark:text-neutral-200  dark:peer-focus:text-primary"
+                     className={`pointer-events-none absolute top-0 left-3 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out ${
+                      (focusedField === 'tel') || tel?.length > 0 ? 'transform -translate-y-[1.5rem] -translate-x-[0.5rem] scale-[0.8] dark:peer-focus:text-primary' : ''} dark:text-neutral-200`}
                       htmlFor="exampleInput90"
                     >
                       Tel. (opcional)
                     </label>
                   </div>
 
+                   {/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
+                  {/* MENSAJE DE TEXTO */}
                   <div className="relative w-full mb-6 row-span-3" data-te-input-wrapper-init>
                     <textarea
                       type="textarea"
@@ -145,20 +188,24 @@ export const ContactForm = () => {
                                  motion-reduce:transition-none dark:text-neutral-200  dark:placeholder:text-neutral-200  dark:peer-focus:text-primary 
                                  [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                       id="exampleInput90"
-                      placeholder="Tel"
+                      name="msg"
+                      value={msg || ''}
+                      onChange={onInputChange}
+                      onFocus={() => handleInputFocus('msg')}
+                      onBlur={handleInputBlur}
                     />
-                    <label
-                      className="pointer-events-none absolute top-0  left-3 mb-0  max-w-[90%]  origin-[0_0] truncate  pt-[0.37rem]  leading-[1.6]  text-neutral-500 
-                                 transition-all duration-200  ease-out  peer-focus:-translate-y-[1.5rem]  peer-focus:-translate-x-[0.5rem]  peer-focus:scale-[0.8] 
-                                 peer-focus:text-primary  peer-data-[te-input-state-active]:-translate-y-[0.9rem]  peer-data-[te-input-state-active]:scale-[0.8] 
-                                 motion-reduce:transition-none  dark:text-neutral-200  dark:peer-focus:text-primary"
+                     <label
+                     className={`pointer-events-none absolute top-0 left-3 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out ${
+                      (focusedField === 'msg') || msg?.length > 0 ? 'transform -translate-y-[1.5rem] -translate-x-[0.5rem] scale-[0.8] dark:peer-focus:text-primary' : ''} dark:text-neutral-200`}
                       htmlFor="exampleInput90"
                     >
                       Mensaje
                     </label>
                   </div>
 
-                  <div className="relative w-[200px] mb-6" data-te-input-wrapper-init>
+                   {/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
+                  {/* BOTON SUBMIT */}
+                  <div className="relative w-[200px] mb-1" data-te-input-wrapper-init>
                     <input
                       type="submit"
                       className="peer block min-h-[auto] w-full  rounded  border-0  bg-primary-600 py-[0.32rem]  px-3 leading-[1.6]  outline-none transition-all 
@@ -166,7 +213,7 @@ export const ContactForm = () => {
                                  motion-reduce:transition-none dark:text-neutral-200  dark:placeholder:text-neutral-200  dark:peer-focus:text-primary 
                                  [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 cursor-pointer hover:bg-primary-700"
                       id="exampleInput90"
-                      placeholder="Tel"
+                      placeholder="submit"
                     />
                     <label
                       className="pointer-events-none absolute top-0  left-3 mb-0  max-w-[90%]  origin-[0_0] truncate  pt-[0.37rem]  leading-[1.6]  text-neutral-500 
@@ -177,8 +224,10 @@ export const ContactForm = () => {
                     >
                     </label>
                   </div>
-
           </form>
+          <div className="text-white text-center">
+            <p>{`${mensaje}`}</p>
+          </div>
         </div>
       </section>
     </div>
