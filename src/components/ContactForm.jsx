@@ -1,29 +1,84 @@
+/* eslint-disable no-unused-vars */
 import { Link } from "react-router-dom";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useForm } from "./hooks/useForm";
 
 export const ContactForm = () => {
 
-  const [focusedField, setFocusedField] = useState(null);
-  const {name, email, tel, msg, onInputChange, onResetForm} = useForm();
-  const [mensaje, setMensaje] = useState('');
+  const formData = {
+    name: '',
+    email: '',
+    tel: '',
+    msg: ''
+  }
 
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  
+  const [focusedField, setFocusedField] = useState(null);
+
+  const formValidation = {
+    name: [
+      (value) => /^[a-zA-Z\s]+$/.test(value),
+      'Debe ingresar un nombre válido (solo letras y espacios)'
+    ],
+    email: [
+      (value) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value),
+      'Debe ingresar un correo valido'
+    ],
+    tel: [
+      (value) => /^[0-9]{8,9}$/.test(value),
+      'Debe ingresar un numero de telefono valido'
+    ],
+    msg: [ (value) => value.length >= 1, 'Debe ingresar un mensaje'],
+  }
+
+  const {name, email, tel, msg, onInputChange, onResetForm, isFormValid,
+        nameValid, emailValid, telValid, msgValid} = useForm(formData, formValidation);
+  
+  const [send, setSend] = useState(null);
+  const [sending, setSending] = useState(null);
+
+  useEffect(() => {
+    if (send) {
+      const timer = setTimeout(() => {
+        setSend(false);
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [send]);
+
+  useEffect(() => {
+    if (sending) {
+      const timer = setTimeout(() => {
+        setSending(false);
+      }, 1000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [sending]);
+  
+  
   const formRef = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
+    setFormSubmitted(true);
 
+    if(!isFormValid) return;
+
+    setSending(true);
     emailjs.sendForm('service_h8chisp', 'template_q4m1hlr', formRef.current, 'FMvO-AnPa6aj_o0yG')
       .then((result) => {
           console.log(result.text);
-          setMensaje(result.text);
+          setSend('Mensaje enviado');
       }, (error) => {
           console.log(error.text);
-          setMensaje(error.text);
       });
 
     onResetForm();
+    setFormSubmitted(false);
   };
 
   const handleInputFocus = (field) => {
@@ -35,7 +90,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <div className="absolute top-20 lg:pt-0 sm:top-0 sm:left-[20rem] bg-contact-img bg-no-repeat bg-center bg-cover sm:w-[calc(100%-20rem)] sm:px-6 h-[100vh]">
+    <div className="absolute top-20 lg:pt-0 sm:top-0 sm:left-[20rem] bg-contact-img bg-no-repeat bg-center bg-cover sm:w-[calc(100%-20rem)] sm:px-6 min-h-[45rem] h-[100vh]">
       <div className="absolute top-0 w-full left-0 h-full bg-gradient-to-r from-zinc-900 to-transparent backdrop-blur-sm">
         {/* el efecto de la opacidad */}
         {/* <div className="absolute top-[50%] left-0 w-full h-[calc(50%)] bg-slate-900 bg-opacity-80"></div> */}
@@ -49,7 +104,7 @@ export const ContactForm = () => {
         </div>
       
         <div className="bg-slate-800 lg:w-[1000px] lg:h-[400px] z-10 lg:mt-72 opacity-95 grid content-end">
-          <div className="flex lg:flex-row flex-col justify-center items-center mx-auto lg:w-[56rem] lg:h-[140px] h-[300px] gap-3">
+          <div className="flex lg:flex-row flex-col justify-center items-center mx-auto lg:w-[56rem] lg:h-[140px] h-[235px] gap-3">
             <div className="flex justify-start lg:justify-center items-center gap-5 bg-slate-900 w-[19rem] lg:w-auto p-2 px-6 rounded-lg">
             
                     <svg className="lg:h-12 h-10 w-12 text-red-500 rounded-lg"  
@@ -124,11 +179,11 @@ export const ContactForm = () => {
                       onBlur={handleInputBlur}
                     />
                     <label
-                     className={`pointer-events-none absolute top-0 left-3 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out ${
-                      (focusedField === 'name') || name?.length > 0 ? 'transform -translate-y-[1.5rem] -translate-x-[0.5rem] scale-[0.8] dark:peer-focus:text-primary' : ''} dark:text-neutral-200`}
+                     className={`pointer-events-none absolute top-0 left-3 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out 
+                     ${(focusedField === 'name') || name?.length > 0 ? 'transform -translate-y-[1.5rem] -translate-x-[0.5rem] scale-[0.8] dark:peer-focus:text-primary' : ''} dark:text-neutral-200`}
                       htmlFor="exampleInput90"
                     >
-                      Nombre
+                      {(nameValid && formSubmitted) ? <span className="text-red-400">{nameValid}</span> : 'Nombre'}
                     </label>
                   </div>
 
@@ -136,7 +191,7 @@ export const ContactForm = () => {
                   {/* EMAIL */}
                   <div className="relative w-full mb-6 pr-8" data-te-input-wrapper-init>
                     <input
-                      type="text"
+                      type="email"
                       className="peer block min-h-[auto] w-full rounded border-0 bg-slate-500 py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear 
                                  focus:placeholder-opacity-0 peer-focus:text-primary dark:text-neutral-200 dark:placeholder-text-neutral-200"
                       id="exampleInput90"
@@ -151,7 +206,7 @@ export const ContactForm = () => {
                       (focusedField === 'email') || email?.length > 0 ? 'transform -translate-y-[1.5rem] -translate-x-[0.5rem] scale-[0.8] dark:peer-focus:text-primary' : ''} dark:text-neutral-200`}
                       htmlFor="exampleInput90"
                     >
-                      Email
+                       {(emailValid && formSubmitted) ? <span className="text-red-400">{emailValid}</span> : 'Email'}
                     </label>
                   </div>
 
@@ -174,7 +229,7 @@ export const ContactForm = () => {
                       (focusedField === 'tel') || tel?.length > 0 ? 'transform -translate-y-[1.5rem] -translate-x-[0.5rem] scale-[0.8] dark:peer-focus:text-primary' : ''} dark:text-neutral-200`}
                       htmlFor="exampleInput90"
                     >
-                      Tel. (opcional)
+                       {(telValid && formSubmitted) ? <span className="text-red-400">{telValid}</span> : 'Cel/Tel (Opcional)'}
                     </label>
                   </div>
 
@@ -199,21 +254,23 @@ export const ContactForm = () => {
                       (focusedField === 'msg') || msg?.length > 0 ? 'transform -translate-y-[1.5rem] -translate-x-[0.5rem] scale-[0.8] dark:peer-focus:text-primary' : ''} dark:text-neutral-200`}
                       htmlFor="exampleInput90"
                     >
-                      Mensaje
+                       {(msgValid && formSubmitted) ? <span className="text-red-400">{msgValid}</span> : 'Mensaje'}
                     </label>
                   </div>
 
                    {/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
                   {/* BOTON SUBMIT */}
-                  <div className="relative w-[200px] mb-1" data-te-input-wrapper-init>
+                  <div className="relative w-[200px] mb-8 flex flex-row" data-te-input-wrapper-init>
                     <input
                       type="submit"
-                      className="peer block min-h-[auto] w-full  rounded  border-0  bg-primary-600 py-[0.32rem]  px-3 leading-[1.6]  outline-none transition-all 
+                      className={`peer block min-h-[auto] w-full  rounded  border-0  bg-primary-600 py-[0.32rem]  px-3 leading-[1.6]  outline-none transition-all 
                                  duration-200 ease-linear  focus:placeholder:opacity-100  peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 
                                  motion-reduce:transition-none dark:text-neutral-200  dark:placeholder:text-neutral-200  dark:peer-focus:text-primary 
-                                 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 cursor-pointer hover:bg-primary-700"
+                                 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 cursor-pointer hover:bg-primary-700
+                                 ${(sending) ? 'bg-gray' : ''}`}
                       id="exampleInput90"
                       placeholder="submit"
+                      disabled={(sending) ? true : false}
                     />
                     <label
                       className="pointer-events-none absolute top-0  left-3 mb-0  max-w-[90%]  origin-[0_0] truncate  pt-[0.37rem]  leading-[1.6]  text-neutral-500 
@@ -224,10 +281,15 @@ export const ContactForm = () => {
                     >
                     </label>
                   </div>
+                  {
+                    (send) ?
+                    <div className="absolute bottom-0 w-[100%] text-center bg-green-400">
+                        <p>Mensaje enviado</p>
+                    </div>
+                    :
+                    ''
+                  }
           </form>
-          <div className="text-white text-center">
-            <p>{`${mensaje}`}</p>
-          </div>
         </div>
       </section>
     </div>
